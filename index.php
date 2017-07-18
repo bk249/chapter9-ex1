@@ -20,6 +20,16 @@ switch ($action) {
         $name = trim($name);
         $email = trim($email);
         $phone = trim($phone);
+
+        $name = strtolower($name);
+        $name = ucwords($name);
+
+        $i = strpos($name, ' ');
+        if ($i === false) {
+            $first_name = $name;
+        } else {
+            $first_name = substr($name, 0, $i);
+        }
         
         /*************************************************
          * validate and process the email address
